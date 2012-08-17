@@ -1,0 +1,32 @@
+---
+abstract: 'FusionInventory Agent Network tasks'
+author:
+  - unknown
+build_requires:
+  Clone: 0
+  ExtUtils::MakeMaker: 6.59
+  Test::Compile: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.59
+dynamic_config: 0
+generated_by: 'Module::Install version 1.06, CPAN::Meta::Converter version 2.120921'
+license: open_source
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: FusionInventory-Agent-Task-Network
+no_index:
+  directory:
+    - inc
+    - t
+recommends:
+  Net::NBName: 0
+requires:
+  Net::IP: 0
+  Net::SNMP: 0
+  XML::TreePP: 0.26
+  perl: 5.008
+  threads: 0
+resources:
+  license: http://opensource.org/licenses/gpl-license.php
+version: 1.0.0

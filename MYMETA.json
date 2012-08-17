@@ -1,0 +1,55 @@
+{
+   "abstract" : "FusionInventory Agent Network tasks",
+   "author" : [
+      "unknown"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Module::Install version 1.06, CPAN::Meta::Converter version 2.120921",
+   "license" : [
+      "open_source"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "FusionInventory-Agent-Task-Network",
+   "no_index" : {
+      "directory" : [
+         "inc",
+         "t"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Clone" : "0",
+            "ExtUtils::MakeMaker" : "6.59",
+            "Test::Compile" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.59"
+         }
+      },
+      "runtime" : {
+         "recommends" : {
+            "Net::NBName" : "0"
+         },
+         "requires" : {
+            "Net::IP" : "0",
+            "Net::SNMP" : "0",
+            "XML::TreePP" : "0.26",
+            "perl" : "5.008",
+            "threads" : "0"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://opensource.org/licenses/gpl-license.php"
+      ]
+   },
+   "version" : "1.0.0"
+}

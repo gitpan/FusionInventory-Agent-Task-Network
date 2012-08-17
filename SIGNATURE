@@ -1,0 +1,90 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.68.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 e606da6a17a855c9d29c4e658fc8b299f6e8b9af Changes
+SHA1 06877624ea5c77efe3b7e39b0f909eda6e25a4ec LICENSE
+SHA1 7815be0fd29ed500bcad4ca4fecf609187966710 MANIFEST
+SHA1 4551f689c9d6c412b412ae5627afc5d3a78ee1d6 META.yml
+SHA1 46935a0de027b80d019c15501f206ba56d4652cf MYMETA.json
+SHA1 83d2332e80de8d2c3be421940f3b70189f7a8813 MYMETA.yml
+SHA1 5ae9745725f1c7b3ced48aac6b5e98ba57a8ebbb Makefile.PL
+SHA1 eef7fa2319a93d381c6fc7868904c6329eed8be0 README
+SHA1 ca7292c4d9de258a49f94becc20ab91f3a3543a8 fusioninventory-netdiscovery
+SHA1 73049f2be981d372aff005841edfff3b0fb78b60 fusioninventory-netinventory
+SHA1 06c410f05488c1612ed66b06d3a86b2580581e4a inc/Module/AutoInstall.pm
+SHA1 8a924add836b60fb23b25c8506d45945e02f42f4 inc/Module/Install.pm
+SHA1 2d0fad3bf255f8c1e7e1e34eafccc4f595603ddc inc/Module/Install/Base.pm
+SHA1 f0e01fff7d73cd145fbf22331579918d4628ddb0 inc/Module/Install/Can.pm
+SHA1 7328966e4fda0c8451a6d3850704da0b84ac1540 inc/Module/Install/Fetch.pm
+SHA1 66d3d335a03492583a3be121a7d888f63f08412c inc/Module/Install/Include.pm
+SHA1 b62ca5e2d58fa66766ccf4d64574f9e1a2250b34 inc/Module/Install/Makefile.pm
+SHA1 1aa925be410bb3bfcd84a16985921f66073cc1d2 inc/Module/Install/Metadata.pm
+SHA1 4d793c044726e06fe35d8d129b76da2803377f92 inc/Module/Install/Scripts.pm
+SHA1 e4196994fa75e98bdfa2be0bdeeffef66de88171 inc/Module/Install/Win32.pm
+SHA1 c3a6d0d5b84feb3280622e9599e86247d58b0d18 inc/Module/Install/WriteAll.pm
+SHA1 f6d6a52a66f8db7463a283234b477d958c42c4ad lib/FusionInventory/Agent/Manufacturer.pm
+SHA1 4b6558f0e0261504498b2fb204d3d56f696c2786 lib/FusionInventory/Agent/Manufacturer/3Com.pm
+SHA1 3e5eae66dd697dd399242bb77e25c669ed7b1f4f lib/FusionInventory/Agent/Manufacturer/Alcatel.pm
+SHA1 7d2e8c61e41fb6f8abacb2040857f64803ac8b86 lib/FusionInventory/Agent/Manufacturer/Axis.pm
+SHA1 b6248b8ef166c4161acd0dd41c570b55f9c8f4c9 lib/FusionInventory/Agent/Manufacturer/Cisco.pm
+SHA1 4585118fd1d121b6f19f62beb6001a5f982f3352 lib/FusionInventory/Agent/Manufacturer/HewlettPackard.pm
+SHA1 d6a2caf60059189a6a36b1060e2331428bb2d629 lib/FusionInventory/Agent/Manufacturer/Juniper.pm
+SHA1 22fd8650743ac8700700019976b07bba868596bf lib/FusionInventory/Agent/Manufacturer/Kyocera.pm
+SHA1 dc7fe192055d1293617b31a0953d705945f4e2e7 lib/FusionInventory/Agent/Manufacturer/Nortel.pm
+SHA1 c40be0f208c87a2f1bea1c6870f67a149174930d lib/FusionInventory/Agent/Manufacturer/Wyse.pm
+SHA1 80a79cd65bc4ab90d3e6cdda17b0b17d37903ecd lib/FusionInventory/Agent/Manufacturer/Zebranet.pm
+SHA1 659150088e8e5227eaf7d55d2580d615e2199cde lib/FusionInventory/Agent/SNMP.pm
+SHA1 859987095af33d03f5a6f0c1d32254df1694f0b9 lib/FusionInventory/Agent/SNMP/Live.pm
+SHA1 bc471955c3816d8d57cf1bd22305aa911273d635 lib/FusionInventory/Agent/SNMP/Mock.pm
+SHA1 6f62bbed47767075819eff706a85ec050455e5ef lib/FusionInventory/Agent/Task/NetDiscovery.pm
+SHA1 9c70db54c765981009a4ef308d51be481abf71fd lib/FusionInventory/Agent/Task/NetDiscovery/Dictionary.pm
+SHA1 b76a61c63dee0159b150232eacc116c151fc732c lib/FusionInventory/Agent/Task/NetInventory.pm
+SHA1 4093c67d1500ce02a367a0ff6cc21ba851743ab0 lib/FusionInventory/Agent/Threads.pm
+SHA1 ad9ef4ac60f76c33e92f7f6a6b8052e681fd8269 lib/FusionInventory/Agent/Tools/SNMP.pm
+SHA1 87daa3c34495f429174252a2da1edc28170ba54f resources/messages/message2.xml
+SHA1 e4594ae54385981fb59788dbbe19516526d6edf9 resources/messages/message3.xml
+SHA1 04e74959e56e7c34359ab94815e6c2d723bfa8d6 resources/nmap/10.0.1.1
+SHA1 105b5fb0ec8e78039193e9f7389691f5ca537f7c resources/nmap/10.0.1.127
+SHA1 d27c547e7959d6d45427418ef230dc3c8c845031 resources/nmap/10.0.1.128
+SHA1 7d6108dceca6ea62b8c41f70ad907f0574573040 resources/nmap/192.168.0.1
+SHA1 c329786abd57e015fb9181074729002baa2e3af4 resources/nmap/88.191.59.1
+SHA1 27c53d65f7e52bcbaaba6ff188a5a226335978c3 resources/nmap/google.com
+SHA1 be4c2982801c299bf495e3f0e5049b670bfd107c resources/walks/sample1.walk
+SHA1 c94d336fcd7adf381228212bc8456774f4072b12 resources/walks/sample2.walk
+SHA1 47655fd007e87c95ec59b3f924ebb3bb8df1626c resources/walks/sample3.walk
+SHA1 5aeaa584a234eea4453f7b0b812d1c4481e7d7e3 t/01compile.t
+SHA1 7e4ae00a4ee293f1a0bb72f6febe1e17c3b15724 t/02critic.t
+SHA1 48d8529d2b3ebab77d9757ad5ba699da1e20da51 t/03pod.t
+SHA1 424db8cd37a81a0a434081e9f2357b02d96f0d74 t/04pod-coverage.t
+SHA1 cebc29e490c3ab7e8c7aa737c2ddc6f413593d72 t/05var.t
+SHA1 7f9ed80698b37e89671d5497055fd4c6079261e0 t/06spelling.t
+SHA1 eb5a6233f6035cb06dc18136026eaffdd47d2cbe t/apps/netdiscovery.t
+SHA1 753e23cde5a33f773a8b843eec2c0b97f4f3d085 t/apps/netinventory.t
+SHA1 802ab9d8dc5bfc29b5d68c29e62450d9aec2715b t/manufacturer.t
+SHA1 1e08d6eaa8eee285a49d71c0e136ec913ae7f3a8 t/message.t
+SHA1 1782636619c631f2249bef8ae151a8899eb80a0b t/nmap.t
+SHA1 73954285878422d17f744d69f703cc47b428e253 t/output.t
+SHA1 8f070ac4a1b3ce405163dac4772f20c10cc1a258 t/perlcriticrc
+SHA1 4a343419fd73fc916e295e5687a2d85d9817b9fe t/snmp/live.t
+SHA1 310d6971875785377c59af729f657bf3ac8ccf0b t/snmp/mock.t
+SHA1 b8c15efc0a59f10712e8f8c579c3d50e7888158d t/tools/snmp.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+
+iEYEARECAAYFAlAtXUsACgkQaSfKiyZjZZBwHACgvm6rnK1ASkiybbnmgKqt9I98
+zu8AnjCgXz9MXw5xpFyNrPfKRYMLNraa
+=OzBe
+-----END PGP SIGNATURE-----
