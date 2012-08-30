@@ -5,8 +5,11 @@ use warnings;
 
 use English qw(-no_match_vars);
 use IPC::Run qw(run);
+use XML::TreePP;
 
-use Test::More tests => 9;
+use Test::More tests => 15;
+
+use FusionInventory::Agent::Task::NetInventory;
 
 my ($out, $err, $rc);
 
@@ -18,6 +21,15 @@ like(
     '--help stdout'
 );
 is($err, '', '--help stderr');
+
+($out, $err, $rc) = run_netinventory('--version');
+ok($rc == 0, '--version exit status');
+is($err, '', '--version stderr');
+like(
+    $out,
+    qr/$FusionInventory::Agent::Task::NetInventory::VERSION/,
+    '--version stdin'
+);
 
 ($out, $err, $rc) = run_netinventory();
 ok($rc == 2, 'no model exit status');
@@ -32,10 +44,19 @@ is($out, '', 'no target stdout');
 ok($rc == 2, 'invalid model exit status');
 like(
     $err,
-    qr/invalid model file/,
+    qr/invalid file/,
     'no target stderr'
 );
 is($out, '', 'no target stdout');
+
+($out, $err, $rc) = run_netinventory('--file resources/walks/sample4.walk --model resources/models/sample1.xml');
+ok($rc == 0, 'success exit status');
+
+my $content = XML::TreePP->new()->parse($out);
+ok($content, 'valid output');
+
+my $result = XML::TreePP->new()->parsefile('resources/walks/sample4.result');
+is_deeply($content, $result, "expected output");
 
 sub run_netinventory {
     my ($args) = @_;

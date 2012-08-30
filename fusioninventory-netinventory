@@ -26,8 +26,13 @@ GetOptions(
     'verbose',
     'debug+',
     'help',
+    'version',
 ) or pod2usage(-verbose => 0);
 
+if ($options->{version}) {
+  print "NetInventory task $FusionInventory::Agent::Task::NetInventory::VERSION\n";
+  exit 0;
+}
 pod2usage(-verbose => 0, -exitval => 0) if $options->{help};
 
 pod2usage(
@@ -42,8 +47,9 @@ pod2usage(
 
 my $model = loadModel($options->{model});
 my $type =
-    $model->{TYPE} == 1 ? 'PRINTER'    :
+    $model->{TYPE} == 1 ? 'COMPUTER'   :
     $model->{TYPE} == 2 ? 'NETWORKING' :
+    $model->{TYPE} == 3 ? 'PRINTER'    :
                           undef        ;
 
 my $inventory = FusionInventory::Agent::Task::NetInventory->new(
@@ -85,6 +91,8 @@ $inventory->{client} =
     FusionInventory::Agent::Task::NetInventory::Client->new(
         verbose => $options->{verbose}
     );
+# TODO: need to be dropped the day we will depend on agent >= 2.3.0
+$inventory->{deviceid} = 'foo';
 
 $inventory->run();
 
@@ -153,14 +161,15 @@ sub new {
 sub getUrl {
     my ($self, %params) = @_;
 
-    return;
+    ## no critic (ExplicitReturnUndef)
+    return undef;
 }
 
 __END__
 
 =head1 NAME
 
-fusioninventory-netinventory - Network inventory from command line
+fusioninventory-netinventory - Standalone network inventory
 
 =head1 SYNOPSIS
 
@@ -168,7 +177,6 @@ fusioninventory-netinventory [options] [--host <host>--file <file>]
   [--model <model>]
 
   Options:
-    -h --help      this menu
     --host host    host to inventorize
     --file         snmpwalk output file
     --model model  XML model file
@@ -176,3 +184,10 @@ fusioninventory-netinventory [options] [--host <host>--file <file>]
     --entity       GLPI entity
     --verbose      verbose output (control messages)
     --debug        debug output (execution traces)
+    -h --help      print this message and exit
+    --version      print the task version and exit
+
+=head1 DESCRIPTION
+
+F<fusioninventory-netinventory> allows to run a network inventory task without
+a GLPI server.

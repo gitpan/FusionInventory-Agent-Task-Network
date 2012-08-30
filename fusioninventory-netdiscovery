@@ -27,8 +27,13 @@ GetOptions(
     'verbose',
     'debug+',
     'help',
+    'version'
 ) or pod2usage(-verbose => 0);
 
+if ($options->{version}) {
+  print "NetDiscovery task $FusionInventory::Agent::Task::NetDiscovery::VERSION\n";
+  exit 0;
+}
 pod2usage(-verbose => 0, -exitval => 0) if $options->{help};
 
 pod2usage(
@@ -138,7 +143,8 @@ sub getStorage {
 sub getUrl {
     my ($self, %params) = @_;
 
-    return;
+    ## no critic (ExplicitReturnUndef)
+    return undef;
 }
 
 package FusionInventory::Agent::Task::NetInventory::Storage;
@@ -163,14 +169,13 @@ __END__
 
 =head1 NAME
 
-fusioninventory-discovery - Network inventory from command line
+fusioninventory-netdiscovery - Standalone network discovery
 
 =head1 SYNOPSIS
 
-fusioninventory-discovery [options] --first <start> --last <stop>
+fusioninventory-netdiscovery [options] --first <start> --last <stop>
 
   Options:
-    -h --help       this menu
     --first address IP range first address
     --last address  IP range last address
     --dictionnary   dictionnary file
@@ -179,3 +184,10 @@ fusioninventory-discovery [options] --first <start> --last <stop>
     --threads nb    number of discovery threads (default: 1)
     --verbose       verbose output (control messages)
     --debug         debug output (execution traces)
+    -h --help       print this message and exit
+    --version       print the task version and exit
+
+=head1 DESCRIPTION
+
+F<fusioninventory-netdiscovery> allows to run a network discovery task without a
+GLPI server.

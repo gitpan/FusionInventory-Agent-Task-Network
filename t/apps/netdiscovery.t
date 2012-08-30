@@ -6,7 +6,9 @@ use warnings;
 use English qw(-no_match_vars);
 use IPC::Run qw(run);
 
-use Test::More tests => 9;
+use Test::More tests => 12;
+
+use FusionInventory::Agent::Task::NetDiscovery;
 
 my ($out, $err, $rc);
 
@@ -18,6 +20,15 @@ like(
     '--help stdout'
 );
 is($err, '', '--help stderr');
+
+($out, $err, $rc) = run_netdiscovery('--version');
+ok($rc == 0, '--version exit status');
+is($err, '', '--version stderr');
+like(
+    $out,
+    qr/$FusionInventory::Agent::Task::NetDiscovery::VERSION/,
+    '--version stdin'
+);
 
 ($out, $err, $rc) = run_netdiscovery();
 ok($rc == 2, 'no first address exit status');

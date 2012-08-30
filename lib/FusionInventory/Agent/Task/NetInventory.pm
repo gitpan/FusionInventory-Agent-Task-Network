@@ -41,8 +41,6 @@ my %properties = (
     UPTIME       => 'uptime',
     SERIAL       => 'serial',
     NAME         => 'name',
-    MODEL        => 'model',
-    MODEL        => 'entPhysicalModelName',
     MANUFACTURER => 'enterprise',
     OTHERSERIAL  => 'otherserial',
     MEMORY       => 'memory',
@@ -389,9 +387,12 @@ sub _queryDevice {
     my $datadevice = {
         INFO => {
             ID   => $device->{ID},
-            TYPE => $device->{TYPE}
+            TYPE => $device->{TYPE},
+            getBasicInfoFromSysdescr($description, $snmp)
         }
     };
+
+
 
     $self->_setGenericProperties(
         results => $results,
@@ -448,16 +449,21 @@ sub _setGenericProperties {
         my $raw_value = $results->{$properties{$key}};
         next unless defined $raw_value;
         my $value =
-            $key eq 'NAME'        ? hex2char($raw_value)                 :
-#            $key eq 'OTHERSERIAL' ? hex2char($raw_value)                 :
-# returns invalid char for example for:
-#  - 0x0115
-#  - 0xfde8
-            $key eq 'SERIAL'      ? getSanitizedSerialNumber($raw_value) :
-            $key eq 'MAC'         ? alt2canonical($raw_value)            :
-            $key eq 'RAM'         ? int($raw_value / 1024 / 1024)        :
-            $key eq 'MEMORY'      ? int($raw_value / 1024 / 1024)        :
-                                    $raw_value                           ;
+            $key eq 'NAME'        ? hex2char($raw_value)                           :
+            $key eq 'LOCATION'    ? hex2char($raw_value)                           :
+            $key eq 'SERIAL'      ? getSanitizedSerialNumber(hex2char($raw_value)) :
+            # OTHERSERIAL can be either:
+            #  - a number in hex
+            #  - a number
+            #  - a string in hex
+            # if we use a number as a string, we can garbage char. For example for:
+            #  - 0x0115
+            #  - 0xfde8
+            $key eq 'OTHERSERIAL' ? getSanitizedSerialNumber($raw_value)           :
+            $key eq 'MAC'         ? alt2canonical($raw_value)                      :
+            $key eq 'RAM'         ? int($raw_value / 1024 / 1024)                  :
+            $key eq 'MEMORY'      ? int($raw_value / 1024 / 1024)                  :
+                                    hex2char($raw_value)                           ;
         $device->{INFO}->{$key} = $value;
     }
 
@@ -580,6 +586,8 @@ sub _setPrinterProperties {
     my $results = $params{results};
     my $device  = $params{device};
 
+    $device->{INFO}->{MODEL} = $results->{model};
+
     # consumable levels
     foreach my $key (keys %printer_cartridges_simple_properties) {
         my $property = $printer_cartridges_simple_properties{$key};
@@ -620,6 +628,8 @@ sub _setNetworkingProperties {
     my $results = $params{results};
     my $device  = $params{device};
     my $walks   = $params{walks};
+
+    $device->{INFO}->{MODEL} = $results->{entPhysicalModelName};
 
     my $comments = $device->{INFO}->{COMMENTS};
     my $ports    = $device->{PORTS}->{PORT};

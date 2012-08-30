@@ -40,6 +40,7 @@ MYMETA.yml
 README
 resources/messages/message2.xml
 resources/messages/message3.xml
+resources/models/sample1.xml
 resources/nmap/10.0.1.1
 resources/nmap/10.0.1.127
 resources/nmap/10.0.1.128
@@ -49,6 +50,8 @@ resources/nmap/google.com
 resources/walks/sample1.walk
 resources/walks/sample2.walk
 resources/walks/sample3.walk
+resources/walks/sample4.result
+resources/walks/sample4.walk
 SIGNATURE
 t/01compile.t
 t/02critic.t
@@ -56,6 +59,8 @@ t/03pod.t
 t/04pod-coverage.t
 t/05var.t
 t/06spelling.t
+t/apps/fusioninventory-netdiscovery.t
+t/apps/fusioninventory-netinventory.t
 t/apps/netdiscovery.t
 t/apps/netinventory.t
 t/manufacturer.t

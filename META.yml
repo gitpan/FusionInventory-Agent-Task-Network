@@ -28,4 +28,4 @@ requires:
   threads: 0
 resources:
   license: http://opensource.org/licenses/gpl-license.php
-version: 1.0.0
+version: 1.0.1
