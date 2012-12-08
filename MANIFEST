@@ -52,15 +52,12 @@ resources/walks/sample2.walk
 resources/walks/sample3.walk
 resources/walks/sample4.result
 resources/walks/sample4.walk
-SIGNATURE
 t/01compile.t
 t/02critic.t
 t/03pod.t
 t/04pod-coverage.t
 t/05var.t
 t/06spelling.t
-t/apps/fusioninventory-netdiscovery.t
-t/apps/fusioninventory-netinventory.t
 t/apps/netdiscovery.t
 t/apps/netinventory.t
 t/manufacturer.t

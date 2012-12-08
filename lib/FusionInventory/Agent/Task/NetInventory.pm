@@ -446,6 +446,9 @@ sub _setGenericProperties {
     }
 
     foreach my $key (keys %properties) {
+        # don't overwrite known values
+        next if $device->{INFO}->{$key};
+
         my $raw_value = $results->{$properties{$key}};
         next unless defined $raw_value;
         my $value =
@@ -460,11 +463,20 @@ sub _setGenericProperties {
             #  - 0x0115
             #  - 0xfde8
             $key eq 'OTHERSERIAL' ? getSanitizedSerialNumber($raw_value)           :
-            $key eq 'MAC'         ? alt2canonical($raw_value)                      :
             $key eq 'RAM'         ? int($raw_value / 1024 / 1024)                  :
             $key eq 'MEMORY'      ? int($raw_value / 1024 / 1024)                  :
                                     hex2char($raw_value)                           ;
+
+        if ($key eq 'MAC') {
+            if ($raw_value =~ $mac_address_pattern) {
+                $value = $raw_value;
+            } else {
+                $value = alt2canonical($raw_value);
+            }
+        }
+
         $device->{INFO}->{$key} = $value;
+
     }
 
     if ($results->{ipAdEntAddr}) {
@@ -880,4 +892,4 @@ This task requires a GLPI server with FusionInventory plugin.
 =head1 AUTHORS
 
 Copyright (C) 2009 David Durieux
-    Copyright (C) 2010-2011 FusionInventory Team
+Copyright (C) 2010-2012 FusionInventory Team

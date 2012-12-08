@@ -4,7 +4,7 @@ use English qw(-no_match_vars);
 name 'FusionInventory-Agent-Task-Network';
 include 'Module::AutoInstall';
 abstract 'FusionInventory Agent Network tasks';
-version '1.0.1';
+version '1.0.2';
 license 'gpl';
 perl_version '5.008';
 
@@ -35,6 +35,7 @@ requires 'Net::SNMP'     => undef;
 
 test_requires 'Clone'            => undef;
 test_requires 'Test::Compile'    => undef;
+test_requires 'Test::Exception'  => undef;
 
 # optional dependencies
 recommends 'Net::NBName' => undef;
@@ -122,6 +123,16 @@ sub constants {
     }
 
     return join("\n", @code);
+}
+
+# suppress all lines related to packlist file installation
+sub install {
+    my ($self) = @_;
+    my $install = $self->SUPER::install(@_);
+
+    $install =~ s/.*\.packlist \\\n//g;
+
+    return $install;
 }
 
 # ensure binaries get modified to use configured directories (on Unix only)

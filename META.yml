@@ -4,6 +4,7 @@ build_requires:
   Clone: 0
   ExtUtils::MakeMaker: 6.59
   Test::Compile: 0
+  Test::Exception: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.59
 distribution_type: module
@@ -28,4 +29,4 @@ requires:
   threads: 0
 resources:
   license: http://opensource.org/licenses/gpl-license.php
-version: 1.0.1
+version: 1.0.2

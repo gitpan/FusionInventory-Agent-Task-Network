@@ -4,7 +4,7 @@
       "unknown"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Module::Install version 1.06, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "open_source"
    ],
@@ -15,8 +15,8 @@
    "name" : "FusionInventory-Agent-Task-Network",
    "no_index" : {
       "directory" : [
-         "t",
-         "inc"
+         "inc",
+         "t"
       ]
    },
    "prereqs" : {
@@ -24,15 +24,19 @@
          "requires" : {
             "Clone" : "0",
             "ExtUtils::MakeMaker" : "6.59",
-            "Test::Compile" : "0"
+            "Test::Compile" : "0",
+            "Test::Exception" : "0"
          }
       },
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "0"
+            "ExtUtils::MakeMaker" : "6.59"
          }
       },
       "runtime" : {
+         "recommends" : {
+            "Net::NBName" : "0"
+         },
          "requires" : {
             "Net::IP" : "0",
             "Net::SNMP" : "0",
@@ -43,5 +47,10 @@
       }
    },
    "release_status" : "stable",
-   "version" : "v1.0.1"
+   "resources" : {
+      "license" : [
+         "http://opensource.org/licenses/gpl-license.php"
+      ]
+   },
+   "version" : "1.0.2"
 }
